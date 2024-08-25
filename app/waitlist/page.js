@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Header from "@/components/layout-components/Header";
+import Airtable from "airtable";
+var base = new Airtable({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE }).base('appU8b6VzPQngKBko');
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -40,19 +42,23 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/submitToAirtable', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      await base('prava-waitlist').create([
+        {
+          "fields": {
+            "Name": formData.name,
+            "Email": formData.email,
+            "Phone": formData.phone || "N/A",  // If phone is optional, handle it accordingly
+            "AI Agents": formData.aiAgents.join(", "),
+          }
+        }
+      ]);
+      alert('Successfully submitted!');
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        aiAgents: [],
       });
-      if (response.ok) {
-        alert('Form submitted successfully!');
-        setFormData({ name: "", email: "", phone: "", aiAgents: [] });
-      } else {
-        alert('Error submitting form. Please try again.');
-      }
     } catch (error) {
       console.error('Error:', error);
       alert('An error occurred. Please try again later.');
