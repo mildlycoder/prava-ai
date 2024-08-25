@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/layout-components/Header";
 import Airtable from "airtable";
+import { useRouter } from "next/navigation";
 var base = new Airtable({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE }).base('appU8b6VzPQngKBko');
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
     aiAgents: [],
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const aiAgentOptions = [
     "Chatbots",
     "Virtual Assistants",
@@ -41,27 +44,30 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await base('prava-waitlist').create([
         {
           "fields": {
             "Name": formData.name,
             "Email": formData.email,
-            "Phone": formData.phone || "N/A",  // If phone is optional, handle it accordingly
-            "AI Agents": formData.aiAgents.join(", "),
+            "Phone": formData.phone || "N/A", "AI Agents": formData.aiAgents.join(", "),
           }
         }
       ]);
-      alert('Successfully submitted!');
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        aiAgents: [],
-      });
+      setIsLoading(false);
+      setIsModalOpen(true);
     } catch (error) {
       console.error('Error:', error);
       alert('An error occurred. Please try again later.');
+      setIsLoading(false);
+    }
+  };
+
+  const router = useRouter(); const handleModalChoice = (choice) => {
+    setIsModalOpen(false);
+    if (choice === "yes") {
+      router.push("https://calendly.com/your-calendly-link");
     }
   };
 
@@ -127,13 +133,35 @@ export default function Home() {
               ))}
             </div>
             <button type="submit" className="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition-colors">
-              Submit
+              {isLoading ? 'Submitting...' : 'Submit'} {/* Pending Indicator */}
             </button>
           </form>
         </div>
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
       </section>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="relative bg-white text-black p-6 rounded-md shadow-lg text-center">
+            {/* Cross Icon to Close the Modal */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-2 right-2 text-black hover:text-red-600 transition-colors"
+            >
+              &#x2715; 
+            </button>
+            <p className="my-4">Would you like to schedule an intro call?</p>
+            <button
+              onClick={() => handleModalChoice("yes")}
+              className="bg-black/90 text-white px-4 py-2 rounded-full mr-2"
+            >
+              Yes Schedule a call
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
