@@ -16,7 +16,7 @@ export default function Home() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const aiAgentOptions = [
     "Chatbots",
     "Virtual Assistants",

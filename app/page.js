@@ -10,10 +10,10 @@ export default function Home() {
       <section className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 items-center min-h-screen">
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
-        <div className="col-span-8 min-h-full  bg-black bg-blend-color flex flex-col items-center justify-center md:p-10">
+        <div className="col-span-8 min-h-full  bg-black bg-blend-color flex flex-col items-center justify-start md:p-5">
           <img src="/hero.svg" />
           <section className="w-[95%] md:w-[60%] text-center flex flex-col gap-4">
-            <h1 className="font-bold text-xl md:text-3xl md:leading-[36px]">Prava makes it fast, easy and cheap</h1>
+            <h1 className="font-bold text-xl md:text-3xl md:leading-[36px]">Unlock a New Power for Your AI Agents: Autonomous Payments</h1>
             <h2 className="text-md md:text-lg opacity-50 leading-[16px] md:leading-[24px] w-[90%] md:w-[50%] mx-auto">Join the Waitlist and Experience the Future of Sending Money Home.</h2>
             <Link href='/waitlist'>
               <button className="bg-white rounded-l-full rounded-r-full px-4 py-2 text-black w-[80%] md:w-[30%] mx-auto border-2 border-white hover:bg-black hover:text-white transition-all duration-500">
@@ -43,8 +43,8 @@ export default function Home() {
 
           <img src="/coins.svg" />
           <section className="w-[95%] md:w-[60%] text-center flex flex-col gap-4">
-            <h1 className="font-bold texl-2xl md:text-3xl leading-[32px] md:leading-[42px]">Meet Prava- The Fintech Revolutionizing Remittances</h1>
-            <h2 className="text-md md:text-lg opacity-50 leading-[24px] md:leading-[24px] w-[80%] md:w-[60%] mx-auto">Prava is a new kind of fintech which puts power in your hands. We are on mission to make cross border payments as seamless and affordable as possible</h2>
+            <h1 className="font-bold texl-2xl md:text-3xl leading-[32px] md:leading-[42px]">Integrate Autonomous Payments with Just a Few Lines of Code</h1>
+            <h2 className="text-md md:text-lg opacity-50 leading-[24px] md:leading-[24px] w-[80%] md:w-[60%] mx-auto">Unlock secure, seamless financial transactions for your AI agents without exposing sensitive bank details.</h2>
             <button className="bg-white rounded-l-full rounded-r-full px-4 py-2 text-black w-[90%] md:w-[30%] mx-auto border-2 border-white hover:bg-black hover:text-white transition-all duration-500">
               Know more
             </button>
