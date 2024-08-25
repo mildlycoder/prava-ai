@@ -4,6 +4,7 @@ import { useState } from "react";
 import Header from "@/components/layout-components/Header";
 import Airtable from "airtable";
 import { useRouter } from "next/navigation";
+import { InlineWidget } from "react-calendly";
 var base = new Airtable({ apiKey: process.env.NEXT_PUBLIC_AIRTABLE }).base('appU8b6VzPQngKBko');
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const aiAgentOptions = [
     "Chatbots",
     "Virtual Assistants",
@@ -150,15 +151,10 @@ export default function Home() {
               onClick={() => setIsModalOpen(false)}
               className="absolute top-2 right-2 text-black hover:text-red-600 transition-colors"
             >
-              &#x2715; 
+              &#x2715;
             </button>
             <p className="my-4">Would you like to schedule an intro call?</p>
-            <button
-              onClick={() => handleModalChoice("yes")}
-              className="bg-black/90 text-white px-4 py-2 rounded-full mr-2"
-            >
-              Yes Schedule a call
-            </button>
+            <InlineWidget url="https://calendly.com/pravahfounders/30min" />
           </div>
         </div>
       )}
