@@ -70,8 +70,8 @@ export default function Home() {
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="col-span-8 min-h-full bg-black bg-blend-color p-5 flex flex-col items-center justify-center">
           <section className="w-full text-center flex flex-col gap-4">
-            <h1 className="font-bold text-3xl leading-[42px]">Your Personal finance assitant right here</h1>
-            <h2 className="text-lg opacity-50 leading-[24px] w-[70%] mx-auto">Prava is a new kind of fintech which puts power in your hands. We are on mission to make cross border payments as seamless and affordable as possible</h2>
+            <h1 className="font-bold text-3xl leading-[42px]">Use Cases</h1>
+            <h2 className="text-lg opacity-50 leading-[24px] w-[70%] mx-auto">Unlock the Future of AI-Driven Payments</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center w-[90%] mx-auto md:p-5 gap-5 md:gap-5">
               <Card bot={"Autonomous Shopping"} link={"/"} desc={"Let your AI agent shop and pay on behalf of users, all while maintaining strict budgetary controls."} />
