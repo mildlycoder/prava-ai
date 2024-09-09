@@ -2,6 +2,7 @@
 
 import Header from "@/components/layout-components/Header";
 import Link from "next/link";
+import Card from "@/components/home-components/Card";
 export default function Home() {
 
   return (
@@ -11,7 +12,7 @@ export default function Home() {
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="col-span-8 min-h-full  bg-black bg-blend-color flex flex-col items-center justify-start md:p-5">
-          <img src="/hero.svg" />
+          <img className="w-[70%]" src="/hero.svg" />
           <section className="w-[95%] md:w-[60%] text-center flex flex-col gap-4">
             <h1 className="font-bold text-xl md:text-3xl md:leading-[36px]">Unlock a New Power for Your AI Agents: Autonomous Payments</h1>
             <h2 className="text-md md:text-lg opacity-50 leading-[16px] md:leading-[24px] w-[90%] md:w-[50%] mx-auto">Join the Waitlist and Experience the Future of Sending Money Home.</h2>
@@ -63,6 +64,27 @@ export default function Home() {
         </div>
         <div className="hidden md:flex col-span-1 min-h-full  ml-[1px] bg-black bg-blend-color"></div>
       </section>
+
+      <section className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 mt-[1px] items-center">
+        <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
+        <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
+        <div className="col-span-8 min-h-full bg-black bg-blend-color p-5 flex flex-col items-center justify-center">
+          <section className="w-full text-center flex flex-col gap-4">
+            <h1 className="font-bold text-3xl leading-[42px]">Your Personal finance assitant right here</h1>
+            <h2 className="text-lg opacity-50 leading-[24px] w-[70%] mx-auto">Prava is a new kind of fintech which puts power in your hands. We are on mission to make cross border payments as seamless and affordable as possible</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center w-[90%] mx-auto md:p-5 gap-5 md:gap-5">
+              <Card bot={"Autonomous Shopping"} link={"/"} desc={"Let your AI agent shop and pay on behalf of users, all while maintaining strict budgetary controls."} />
+              <Card bot={"Controlled Spendings"} link={"/"} desc={"Set limits for your AI agent to make payments only within certain parameters, ensuring safe and predictable spending"} />
+              <Card bot={"Instant Transactions"} link={"/"} desc={"AI agents can process real-time payments across borders, optimizing both speed and cost-efficiency."} />
+              <Card bot={"Transaction Verification"} link={"/"} desc={"an automated flagging and rollback system. Suspicious transactions are flagged and paused for review. You can approve legitimate transactions or automatically roll back flagged ones, ensuring security and accuracy in all payments."} />
+            </div>
+          </section>
+        </div>
+        <div className="hidden md:flex col-span-1 min-h-full ml-[1px] bg-black bg-blend-color"></div>
+        <div className="hidden md:flex col-span-1 min-h-full ml-[1px] bg-black bg-blend-color"></div>
+      </section>
+
     </main>
   )
 }
