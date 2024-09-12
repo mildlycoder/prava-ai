@@ -15,7 +15,7 @@ export default function Home() {
 
 
         <Header />
-        <section className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 items-center min-h-fit md:min-h-screen relative overflow-hidden">
+        <section id="home" className="mx-auto md:pt-14 grid grid-col-1 md:grid-cols-12 grid-rows-1 items-center min-h-fit md:min-h-screen relative overflow-hidden">
           {[...Array(500)].map((_, i) => (
             <motion.div
               key={i}
@@ -92,7 +92,7 @@ export default function Home() {
         </section>
       </div>
 
-      <section className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 mt-[1px] items-center">
+      <section id="use-case" className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 mt-[1px] items-center">
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="col-span-8 min-h-full bg-black bg-blend-color p-5 flex flex-col items-center justify-center py-12 md:py-28">
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="hidden md:flex col-span-1 min-h-full ml-[1px] bg-black bg-blend-color"></div>
       </section>
 
-      <section className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 mt-[1px] items-start">
+      <section id="integration" className="mx-auto grid grid-col-1 md:grid-cols-12 grid-rows-1 mt-[1px] items-start">
         <div className="hidden md:flex col-span-1 min-h-full mr-[1px] bg-black bg-blend-color"></div>
         <div className="hidden col-span-1 min-h-full md:flex flex-col">
           <div className="bg-black bg-blend-color basis-1/3 grow flex items-center m-[1px] justify-center aspect-square">
