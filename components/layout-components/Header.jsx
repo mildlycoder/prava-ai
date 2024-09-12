@@ -6,14 +6,6 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  if (pathname.includes('chat')) return null;
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -27,7 +19,14 @@ export default function Header() {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+  }; const [isScrolled, setIsScrolled] = useState(false);
+
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
+
+ 
 
   return (
     <header className={`w-full fixed top-0 border-[1px] border-white/70 left-0 right-0 z-50 transition-all duration-300 ${
