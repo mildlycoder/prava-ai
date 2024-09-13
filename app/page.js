@@ -126,8 +126,16 @@ export default function Home() {
           </div>
         </div>
         <div className="col-span-8 bg-black min-h-full bg-blend-color flex flex-col items-center justify-center pb-20 md:py-28">
-
-          <img src="/coins.svg" />
+          <style jsx>{`
+#integration-image {
+      transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+      transition: transform 0.3s ease;
+    }
+#integration-image:hover {
+      transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+    }
+  `}</style>
+          <img id="integration-image" src="/integration.svg" className="md:w-[50%] mx-auto" />
           <section className="w-[95%] md:w-[60%] text-center flex flex-col gap-4">
             <h1 className="font-bold texl-2xl md:text-3xl leading-[32px] md:leading-[42px]">Integrate Autonomous Payments with Just a Few Lines of Code</h1>
             <h2 className="text-md md:text-lg opacity-50 leading-[24px] md:leading-[24px] w-[80%] md:w-[60%] mx-auto">Unlock secure, seamless financial transactions for your AI agents without exposing sensitive bank details.</h2>
